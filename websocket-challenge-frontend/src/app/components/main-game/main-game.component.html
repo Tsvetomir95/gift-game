@@ -1,6 +1,15 @@
 <div class="main">
-  <div class="users">Потребители онлайн: {{ onlineUsers }}</div>
-  <app-text [textToShow]="giftMessage"></app-text>
+  <div class="users">
+    Потребители онлайн:
+    <span class="users-num">{{ sharedService.onlineUsers | async }}</span>
+  </div>
+
+  <ul *ngIf="giftMessage">
+    <li>
+      <app-text [textToShow]="giftMessage"></app-text>
+    </li>
+  </ul>
+
   <img
     (click)="getGift()"
     class="image"

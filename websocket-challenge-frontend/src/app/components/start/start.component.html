@@ -1,5 +1,7 @@
 <div class="bg">
-  <div class="users">Потребители онлайн: {{ onlineUsers }}</div>
+  <div class="users">
+    Потребители онлайн: {{ sharedService.onlineUsers | async }}
+  </div>
   <div class="centerer">
     <input
       class="input"
@@ -7,6 +9,9 @@
       type="text"
       placeholder="Здравей, как се казваш?"
     />
-    <a (click)="setName()" [routerLink]="['main']" class="button">Старт</a>
+    <button (click)="setName()" class="button">Старт</button>
+    <p style="margin-top: 30px; font-size: 30px" *ngIf="showError">
+      Моля въведете име!
+    </p>
   </div>
 </div>

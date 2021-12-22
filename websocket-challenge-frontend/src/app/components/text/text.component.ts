@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-text',
@@ -7,7 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TextComponent implements OnInit {
   @Input() textToShow = '';
+
+  range = { min: 100, max: 700 };
+  delta = this.range.max - this.range.min;
+  rand = 1;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.rand = Math.round(this.range.min + Math.random() * this.delta);
+    console.log(this.rand);
+  }
 }

@@ -157,12 +157,20 @@ body {
 */
 
 .input {
+  border-radius: 2px;
+  padding: 2px 10px;
   width: 30%;
-  height: 30px;
+  height: 35px;
   margin-bottom: 30px;
-  border: 1px solid #4a110c;
+  border: 2px solid white;
+  outline: none;
+  // text-transform: capitalize;
 }
 
+input:focus {
+  border: 3px dashed #c85c5c;
+  // border: 3px dashed #b2ea70;
+}
 .users {
   position: absolute;
   right: 30px;

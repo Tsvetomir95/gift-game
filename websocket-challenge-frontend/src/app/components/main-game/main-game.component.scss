@@ -12,10 +12,14 @@
 
 .image {
   width: 40%;
+  cursor: pointer;
 }
 
 .users {
   position: absolute;
   right: 30px;
   top: 20px;
+}
+.users-num {
+  font-size: 23px;
 }
