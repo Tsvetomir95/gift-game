@@ -25,9 +25,9 @@ export class GiftGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
   server: Server;
 
   @SubscribeMessage('click_gift')
-  listenForMessages(client: Socket, @MessageBody() data: number) {
-    let response = this.appService.getGift(data);
-    this.server.sockets.emit('gift', "Късметче " + data + ": " + response);
+  listenForMessages(client: Socket, @MessageBody() data: any) {
+    let response = this.appService.getGift(data.id);
+    this.server.sockets.emit('gift', "Късметче на " + data.name + ": " + response);
   }
 
   afterInit(server: Server) {
