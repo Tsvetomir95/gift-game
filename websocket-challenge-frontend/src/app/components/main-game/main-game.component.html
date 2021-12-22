@@ -1,4 +1,6 @@
 <div class="main">
+  <div class="users">Потребители онлайн: {{ onlineUsers }}</div>
+  <app-text [textToShow]="giftMessage"></app-text>
   <img
     (click)="getGift()"
     class="image"

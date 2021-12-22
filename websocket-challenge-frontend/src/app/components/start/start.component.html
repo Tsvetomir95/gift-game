@@ -1,5 +1,12 @@
 <div class="bg">
+  <div class="users">Потребители онлайн: {{ onlineUsers }}</div>
   <div class="centerer">
-    <a [routerLink]="['main']" class="button">Старт</a>
+    <input
+      class="input"
+      [(ngModel)]="name"
+      type="text"
+      placeholder="Здравей, как се казваш?"
+    />
+    <a (click)="setName()" [routerLink]="['main']" class="button">Старт</a>
   </div>
 </div>
