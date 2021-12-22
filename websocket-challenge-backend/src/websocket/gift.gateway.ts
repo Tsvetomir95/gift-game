@@ -10,7 +10,11 @@ import {
 import { Socket, Server } from 'socket.io';
 import {AppService} from '../app.service'
 
-@WebSocketGateway()
+@WebSocketGateway({
+  cors: {
+    origin: '*',
+  },
+})
 export class GiftGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
 
   constructor(private readonly appService: AppService){}
@@ -21,7 +25,7 @@ export class GiftGateway implements OnGatewayInit, OnGatewayConnection, OnGatewa
   server: Server;
 
   @SubscribeMessage('click_gift')
-  listenForMessages(@MessageBody() data: number) {
+  listenForMessages(client: Socket, @MessageBody() data: number) {
     let response = this.appService.getGift(data);
     this.server.sockets.emit('gift', "Късметче " + data + ": " + response);
   }
