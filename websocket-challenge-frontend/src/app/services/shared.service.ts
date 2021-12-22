@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { webSocket } from 'rxjs/webSocket';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedService {
-
-  constructor() { }
+  subject = webSocket('ws://example.com');
+  constructor() {}
 }
