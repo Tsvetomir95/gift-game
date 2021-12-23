@@ -4,9 +4,9 @@
     <span class="users-num">{{ sharedService.onlineUsers | async }}</span>
   </div>
 
-  <ul *ngIf="giftMessage">
-    <li>
-      <app-text [textToShow]="giftMessage"></app-text>
+  <ul *ngIf="response" class="container">
+    <li class="text" *ngFor="let i of response">
+      <span>{{ i }}</span>
     </li>
   </ul>
 

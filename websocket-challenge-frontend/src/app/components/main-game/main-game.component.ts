@@ -65,7 +65,9 @@ export class MainGameComponent implements OnInit {
       this.sharedService.sendMessage(this.payload);
       this.sharedService.getMessage().subscribe((res) => {
         this.giftMessage = res;
+        this.response.push(this.giftMessage);
       });
+
       console.log(this.response);
       // this.sharedService
       //   .getPosition()
